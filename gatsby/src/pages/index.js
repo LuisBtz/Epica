@@ -6,6 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components";
 import Render from "../components/render/Render";
 import BlockContent from '@sanity/block-content-to-react';
+import Location from "../components/Location/Location";
 
 
 export const data = graphql`
@@ -50,6 +51,31 @@ export const data = graphql`
       }
 
 
+      ## Location
+      location {
+        locationLink
+        map {
+          textoAlternativo
+          asset {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              outputPixelDensities: 1.5
+              placeholder: BLURRED
+            )
+          }
+        }
+        _rawLocationTitle
+        sections {
+          _key
+          titleBigSection
+          list
+          color
+        }
+      }
+
+      ##
+
+
 
     }
   }
@@ -73,7 +99,7 @@ const IndexPage = ({data}) => {
   return (
     <Layout >
       <Main className="main">
-        <header className={nav ? 'menu active' : 'menu'} onClick={() => showNav(!nav)}>
+        <button className={nav ? 'menu active' : 'menu'} onClick={() => showNav(!nav)}>
           <img src="/logo.svg" alt='Logo Epica'  className="logo" />
           <div className="mid">
             <a className="brochure" href='/brochure.pdf' download>descargar brochure</a>
@@ -103,7 +129,7 @@ const IndexPage = ({data}) => {
               </ul>
             </div>
           </div>
-        </header>
+        </button>
         <Button onClick={() => showNav(!nav)}>
           <div className="sticky">
             <div className="image">
@@ -117,10 +143,18 @@ const IndexPage = ({data}) => {
           </div>
           
         </Button>
-
+        <div className="sections">
 
         {/* Render */}
         <Render render={data.sanityLandingPage.render} />
+
+
+        {/* Location */}
+        <Location location={data.sanityLandingPage.location} />
+
+
+        </div>
+
 
 
 
@@ -138,7 +172,7 @@ const Main = styled.div`
   .active {
     left: 0px !important;
   }
-  header.menu {
+  button.menu {
     position: fixed;
     top: 0;
     transition: all 350ms ease-in-out;
@@ -155,6 +189,7 @@ const Main = styled.div`
       margin-bottom: 50px;
     }
     .mid {
+      width: 100%;
       .brochure {
         text-transform: uppercase;
         text-align: center;
@@ -176,6 +211,10 @@ const Main = styled.div`
       }
     }
     .bottom {
+      text-align: left;
+      p {
+        width: 70%;
+      }
       .social {
         ul {
           display: flex;
@@ -188,6 +227,13 @@ const Main = styled.div`
         }
       }
     }
+  }
+
+  .sections {
+    padding: 100px 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 `
 

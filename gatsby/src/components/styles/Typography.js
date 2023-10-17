@@ -85,5 +85,11 @@ html {
         font-size: 4vw;
         text-transform: uppercase;
     }
+
+    h3 {
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        line-height: 1;
+    }
     
 `

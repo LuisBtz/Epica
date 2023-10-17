@@ -29,7 +29,6 @@ const Render = ({render}) => {
 
 const RenderContainer = styled.section`
 width: 100%;
-padding: 100px 50px;
 position: relative;
 z-index: 1;
 @media (max-width: 630px) {
@@ -42,7 +41,7 @@ z-index: 1;
     }
     .texto {
         position: absolute;
-        top: 150px;
+        top: 100px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
@@ -52,7 +51,7 @@ z-index: 1;
          margin: 0 auto;
          @media (max-width: 950px) {
             width: 350px;
-            top: 120px;
+            top: 30px;
             p {
                 width: 100% !important;
                 padding-top: 20px;
