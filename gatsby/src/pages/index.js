@@ -143,6 +143,9 @@ const IndexPage = ({data}) => {
           </div>
           
         </Button>
+        <button className={nav ? 'overlay active' : 'overlay'} onClick={() => showNav(!nav)}>
+                
+        </button>
         <div className="sections">
 
         {/* Render */}
@@ -169,7 +172,22 @@ const Main = styled.div`
   display: flex;
   position: relative;
   height: 100%;
-  .active {
+  .overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: calc(100vw - 350px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 350ms ease-in-out 350ms;
+  }
+  .overlay.active {
+    right: 0;
+    opacity: 1;
+  }
+  button.menu.active {
     left: 0px !important;
   }
   button.menu {

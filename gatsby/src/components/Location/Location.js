@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlockContent from '@sanity/block-content-to-react';
@@ -8,6 +8,10 @@ const Location = ({location}) => {
     const locationGetDataImage = getImage(location.map && location.map.asset)
     const locationGetDataImageAlt = location.map && location.map.textoAlternativo
   
+
+    const [li, showLi] = useState(false);
+
+
     return(
         <LocationContainer>
             <div className='left'>
@@ -26,15 +30,20 @@ const Location = ({location}) => {
                     />
                 </div>
                 <ul className='plazas'>
-                    {location.sections.map(({ _kay, titleBigSection, list, color }) => {
+                    {location.sections.map((section) => {
                     return (
-                        <li kay={_kay} className='item'><span className='color' style={{backgroundColor: `${color}`}} ></span> <h4>{titleBigSection}</h4> 
-                        <button>
+                        <li 
+                            kay={section._kay} 
+                            className={`item ${li === section && 'open'}`}
+                        >
+                            <span className='color' style={{backgroundColor: `${section.color}`}} ></span> 
+                            <h4>{section.titleBigSection}</h4> 
+                        <button onClick={() => showLi(section)}>
                             <div></div>
                             <div></div>
                         </button>
                             <ul>
-                            {list.map((item) => {
+                            {section.list.map((item) => {
                                 return(
                                     <li>{item}</li>
                                 )
@@ -90,10 +99,16 @@ margin-top: 50px;
                 }
             }
         }
+        li.item.open {
+            max-height: 500px;
+        }
         li.item {
             border-bottom: solid 1px var(--black);
             position: relative;
             padding: 10px 0;
+            display: block;
+            max-height: 40px;
+            overflow: hidden;
             span.color {
                 display: block;
                 width: 15px;
@@ -104,9 +119,9 @@ margin-top: 50px;
             h4 {
                 text-transform: uppercase;
                 margin-left: 20px;
-                margin-bottom: 20px;
             }
             ul {
+                margin-top: 20px;
                 li {
                     margin-bottom: 10px;
                     font-size: 0.8rem;
