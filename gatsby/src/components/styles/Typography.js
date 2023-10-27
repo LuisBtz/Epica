@@ -87,9 +87,12 @@ html {
     }
 
     h3 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         text-transform: uppercase;
         line-height: 1;
+        @media (max-width: 1200px) {
+            font-size: 4vw;
+        }
     }
     
 `

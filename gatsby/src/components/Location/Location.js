@@ -9,7 +9,7 @@ const Location = ({location}) => {
     const locationGetDataImageAlt = location.map && location.map.textoAlternativo
   
 
-    const [li, showLi] = useState(false);
+    const [li, showLi] = useState(true);
 
 
     return(
@@ -64,14 +64,30 @@ display: flex;
 flex-direction: row;
 width: 100%;
 margin-top: 50px;
-
+@media (max-width: 780px) {
+    flex-direction: column;
+}
 .left {
     width: 40%;
     padding-right: 50px;
+    @media (max-width: 1200px) {
+        width: 60%;
+        padding-right: 20px;
+    }
+    @media (max-width: 780px) {
+        width: 100%;
+    }
 }
 
 .der {
     width: 60%;
+    @media (max-width: 1200px) {
+        width: 40%;
+    }
+    @media (max-width: 780px) {
+        margin-top: 50px;
+        width: 100%;
+    }
     .plazas {
         margin-top: 50px;
         position: relative;
@@ -109,6 +125,10 @@ margin-top: 50px;
             display: block;
             max-height: 40px;
             overflow: hidden;
+            transition: all 350ms ease-in-out;
+            @media (max-width: 950px) {
+                max-height: 60px !important;
+            }
             span.color {
                 display: block;
                 width: 15px;
@@ -122,6 +142,9 @@ margin-top: 50px;
             }
             ul {
                 margin-top: 20px;
+                @media (max-width: 950px) {
+                    margin-top: 50px;
+                }
                 li {
                     margin-bottom: 10px;
                     font-size: 0.8rem;
