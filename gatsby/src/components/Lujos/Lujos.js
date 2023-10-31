@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import BlockContent from '@sanity/block-content-to-react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -8,16 +8,78 @@ import "slick-carousel/slick/slick.css"
 const Lujos = ({slider}) => {
 
 
+    const sliderRef = React.useRef(null);
+    React.useEffect(() => {
+      const track = sliderRef.current.innerSlider.list.querySelector('.slick-track');
+      const focusSlider = setTimeout(() => {
+        const slide = track.querySelector('.slick-slide');
+        slide.focus();
+      }, 0);
+      return () => clearTimeout(focusSlider);
+    }, []);
+    const handleNextClick = () => sliderRef.current.slickNext();
+    const handlePrevClick = () => sliderRef.current.slickPrev();
+
+
+
+
+    function SampleNextArrow(props) {
+        const { className, onClick } = props;
+        return (
+          <button className={className} onClick={onClick} onKeyDown={onClick}>
+            <img src='/Right_ arrow.png' alt='arrow button right' />
+          </button>
+        );
+      }
+
+      function SamplePrevArrow(props) {
+        const { className, onClick } = props;
+        return (
+          <button className={className} onClick={onClick} onKeyDown={onClick}>
+            <img src='/Left_ arrow.png' alt='arrow button left'  />
+          </button>
+        );
+      }
+
+
+
+
+
     const settings = {
         arrows: true,
-        centerPadding: "0px",
-        centerMode: true,
-        dots: true,
+        
+        dots: false,
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         speed: 500,
+        nextArrow: <SampleNextArrow onClick={handleNextClick}/>,
+        prevArrow: <SamplePrevArrow onClick={handlePrevClick} />,
+        ref: sliderRef,
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                }
+              },
+            {
+              breakpoint: 780,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                initialSlide: 1,
+                centerPadding: "30px",
+                autoplay: true
+              }
+            },
+          ]
       };
 
 
@@ -71,15 +133,9 @@ const Lujos = ({slider}) => {
 const LujosContainer = styled.section`
     margin-top: 100px;
     
-`
-
-const SliderContainer = styled(Slider)`
-margin-top: 50px;
-position: relative;
-top: 0;
-height: 100%;
-.item {
-    padding-right: 20px;
+    li.item {
+    padding-right: 10px;
+    padding-left: 10px;
     &:hover {
         .imageContainer {
             .image {
@@ -108,6 +164,46 @@ height: 100%;
         }
     
 }
+
+@media (max-width: 780px) {
+        .title {
+            text-align: center;
+        }
+    }
+    
+`
+
+const SliderContainer = styled(Slider)`
+margin-top: 50px;
+position: relative;
+top: 0;
+height: 100%;
+button.slick-arrow {
+    background-color: #463436;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    img {
+        width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+button.slick-next {
+    right: 0;
+    top: -50px;
+    border-radius: 0 50% 50% 0;
+}
+button.slick-prev {
+    right: 31px;
+    top: -50px;
+    border-radius: 50% 0 0 50%;
+}
+
 /* .slick-arrow {
     position: absolute;
     z-index: 1;

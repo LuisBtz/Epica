@@ -93,6 +93,9 @@ html {
         @media (max-width: 1200px) {
             font-size: 4vw;
         }
+        @media (max-width: 750px) {
+            font-size: 5vw;
+        }
     }
     
 `

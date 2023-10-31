@@ -237,6 +237,7 @@ const Main = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
     .logo {
       margin-bottom: 50px;
     }
@@ -296,12 +297,22 @@ const Button = styled.button`
   padding: 50px;
   border-right: solid 1px var(--brown);
   position: relative;
+  @media (max-width: 780px) {
+        width: 100px;
+        padding: 20px;
+    }
   .sticky {
     position: sticky;
     top: 50px;
     width: 100%;
     p {
       margin-top: 75vh;
+    }
+    @media (max-width: 780px) {
+        .image {
+          width: 70%;
+          margin: 0 auto;
+        }
     }
   }
 `
