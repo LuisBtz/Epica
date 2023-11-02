@@ -8,6 +8,7 @@ import Render from "../components/render/Render";
 import BlockContent from '@sanity/block-content-to-react';
 import Location from "../components/Location/Location";
 import Lujos from "../components/Lujos/Lujos";
+import Gallery from "../components/Gallery/Gallery";
 
 
 export const data = graphql`
@@ -105,6 +106,43 @@ export const data = graphql`
     }
 
 
+    ## Gallery
+
+    gallery {
+      _rawGalleryTitle
+      galleryDescription
+      galleryMainImage {
+        textoAlternativo
+        asset {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            outputPixelDensities: 1.5
+            placeholder: BLURRED
+          )
+        }
+      }
+      gallery {
+        _key
+        itemName
+        description
+        image {
+          textoAlternativo
+          asset {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              outputPixelDensities: 1.5
+              placeholder: BLURRED
+            )
+          }
+        }
+      }
+    }
+
+
+
+
+
+
 
     }
   }
@@ -189,6 +227,9 @@ const IndexPage = ({data}) => {
         {/* Lujos */}
         <Lujos slider={data.sanityLandingPage.slider} />
 
+        {/* Gallery */}
+
+        <Gallery gallery={data.sanityLandingPage.gallery} />
 
         </div>
 
@@ -287,8 +328,13 @@ const Main = styled.div`
     display: flex;
     flex-direction: column;
     width: calc(100% - 144px);
+      @media (max-width: 750px) {
+        padding: 100px 20px;
+    }
   }
+
 `
+
 
 const Button = styled.button`
   display: flex;

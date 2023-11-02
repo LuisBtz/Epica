@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import BlockContent from '@sanity/block-content-to-react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -59,7 +59,6 @@ const Lujos = ({slider}) => {
         ref: sliderRef,
         className: "center",
         centerMode: true,
-        infinite: true,
         centerPadding: "60px",
         responsive: [
             {
