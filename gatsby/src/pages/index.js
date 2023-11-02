@@ -9,6 +9,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Location from "../components/Location/Location";
 import Lujos from "../components/Lujos/Lujos";
 import Gallery from "../components/Gallery/Gallery";
+import Numbers from "../components/Numbers/Numbers";
 
 
 export const data = graphql`
@@ -141,8 +142,17 @@ export const data = graphql`
 
 
 
+    ## Numbers
 
-
+    numbers {
+      _rawNumbersSectionsTitle
+      numbers {
+        _key
+        number
+        title
+        description
+      }
+    }
 
     }
   }
@@ -230,6 +240,10 @@ const IndexPage = ({data}) => {
         {/* Gallery */}
 
         <Gallery gallery={data.sanityLandingPage.gallery} />
+
+        {/* Numbers */}
+
+        <Numbers numbers={data.sanityLandingPage.numbers} />
 
         </div>
 
@@ -328,8 +342,9 @@ const Main = styled.div`
     display: flex;
     flex-direction: column;
     width: calc(100% - 144px);
-      @media (max-width: 750px) {
+      @media (max-width: 780px) {
         padding: 100px 20px;
+        width: calc(100% - 100px);
     }
   }
 
