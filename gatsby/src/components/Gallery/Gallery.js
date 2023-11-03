@@ -79,7 +79,7 @@ const Gallery = ({gallery}) => {
 
 
     return(
-        <GalleryContainer>
+        <GalleryContainer id='galeria'>
 
             <div className="image general">
                 <GatsbyImage

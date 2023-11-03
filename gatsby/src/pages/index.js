@@ -224,10 +224,10 @@ const IndexPage = ({data}) => {
             <ul className="menu">
               <li><a href='#concepto'>Concepto</a></li>
               <li><a href='#ubicacion'>Ubicación</a></li>
-              <li><a href='#numeralia'>Numeralia</a></li>
               <li><a href='#amenidades'>Amenidades</a></li>
               <li><a href='#galeria'>Galería</a></li>
-              <li><a href="contacto">Contacto</a></li>
+              <li><a href='#numeralia'>Numeralia</a></li>
+              <li><a href="#contacto">Contacto</a></li>
             </ul>
 
           </div>

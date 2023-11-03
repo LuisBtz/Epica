@@ -8,7 +8,7 @@ const Contacto = ({contact}) => {
 
 
     return(
-        <ContainerContacto>
+        <ContainerContacto id='contacto'>
             <div className='title'>
                 <BlockContent
                     blocks={contact._rawContactSectionsTitle}

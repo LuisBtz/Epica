@@ -9,7 +9,7 @@ const Render = ({render}) => {
     const bgGetDataImageAlt = render.renderImage && render.renderImage.textoAlternativo
   
     return(
-        <RenderContainer>
+        <RenderContainer id='concepto'>
             <div className="image">
               <GatsbyImage
                   style={{ height: "100%", width: "100%" }}

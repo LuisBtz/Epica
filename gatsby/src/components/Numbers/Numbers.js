@@ -5,7 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 
 const Numbers = ({numbers}) => {
     return(
-        <ContainerNumbers>
+        <ContainerNumbers id='numeralia'>
             <div className='title'>
                 <BlockContent
                     blocks={numbers._rawNumbersSectionsTitle}

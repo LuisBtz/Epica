@@ -77,7 +77,7 @@ const Lujos = ({slider}) => {
 
 
     return(
-        <LujosContainer>
+        <LujosContainer id='amenidades'>
             <div className='title'>
                 <BlockContent
                     blocks={slider._rawSliderTitle}

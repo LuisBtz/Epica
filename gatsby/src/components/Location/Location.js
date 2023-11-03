@@ -13,7 +13,7 @@ const Location = ({location}) => {
 
 
     return(
-        <LocationContainer>
+        <LocationContainer id='ubicacion'>
             <div className='left'>
                 <div className="image">
                 <GatsbyImage
