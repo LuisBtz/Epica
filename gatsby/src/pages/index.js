@@ -348,6 +348,9 @@ const Main = styled.div`
     }
     .mid {
       width: 100%;
+      a {
+        color: var(--black);
+      }
       .brochure {
         text-transform: uppercase;
         text-align: center;
@@ -418,6 +421,7 @@ const Button = styled.button`
     width: 100%;
     p {
       margin-top: 75vh;
+      color: var(--black);
     }
     @media (max-width: 780px) {
         .image {

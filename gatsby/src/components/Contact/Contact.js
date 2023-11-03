@@ -66,6 +66,7 @@ const ContainerContacto = styled.section`
             padding: 7px 10px;
             text-transform: uppercase;
             border-radius: 3px;
+            color: var(--black);
         }
     }
     .active {
