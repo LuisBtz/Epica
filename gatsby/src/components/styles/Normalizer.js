@@ -274,7 +274,7 @@ template {
 ul {
   list-style: none;  
 }
-a {
+a, button {
     text-decoration: none;
     color: inherit;
 }
