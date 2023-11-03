@@ -10,14 +10,7 @@ const Blueprint = ({blueprint}) => {
 
 
     const sliderRef = React.useRef(null);
-    React.useEffect(() => {
-      const track = sliderRef.current.innerSlider.list.querySelector('.slick-track');
-      const focusSlider = setTimeout(() => {
-        const slide = track.querySelector('.slick-slide');
-        slide.focus();
-      }, 0);
-      return () => clearTimeout(focusSlider);
-    }, []);
+    
     const handleNextClick = () => sliderRef.current.slickNext();
     const handlePrevClick = () => sliderRef.current.slickPrev();
 

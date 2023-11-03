@@ -105,6 +105,9 @@ const HeaderContainer = styled.nav`
     background-color: var(--brown);
     height: 100vh;
     position: relative;
+    @media (max-width: 680px) {
+        height: 80vh;
+    }
     .icon-hero {
         position: absolute;
         top: 50px;
@@ -119,7 +122,8 @@ const HeaderContainer = styled.nav`
         border-radius: 0% 65% 0% 0% / 10% 89% 0% 10%;
         overflow: hidden;
         @media (max-width: 680px) {
-            border-radius: 0% 20% 0% 0% / 10% 22% 10% 10% ;
+            border-radius: 0% 30% 0% 0% / 10% 22% 10% 10% ;
+            height: 80vh;
         }
         .image {
             height: 100%;

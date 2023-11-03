@@ -46,6 +46,7 @@ export const Typography = createGlobalStyle`
     --white: #F1F2EB;
     --brown: #463436;
     overflow-wrap: break-word;
+    scroll-behavior: auto !important;
 }
 html {
       scroll-behavior: smooth;
