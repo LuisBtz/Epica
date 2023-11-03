@@ -118,6 +118,7 @@ const Blueprint = ({blueprint}) => {
 const ContainerBluePrint = styled.section`
 margin-top: 150px;
 text-align: center;
+padding-bottom: 50px;
 .title {
     max-width: 600px;
     margin-left: auto;

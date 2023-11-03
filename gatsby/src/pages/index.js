@@ -11,6 +11,7 @@ import Lujos from "../components/Lujos/Lujos";
 import Gallery from "../components/Gallery/Gallery";
 import Numbers from "../components/Numbers/Numbers";
 import Blueprint from "../components/Blueprint/Blueprint";
+import Contacto from "../components/Contact/Contact";
 
 
 export const data = graphql`
@@ -181,7 +182,15 @@ export const data = graphql`
     }
 
 
+    ## Contact
 
+    contact {
+      _rawContactSectionsTitle
+      description
+      buttonText
+      formTitle
+      descriptionForm
+    }
 
 
 
@@ -280,6 +289,11 @@ const IndexPage = ({data}) => {
         {/* Blueprint */}
 
         <Blueprint blueprint={data.sanityLandingPage.blueprint} />
+
+
+        {/* Contacto */}
+
+        <Contacto contact={data.sanityLandingPage.contact} />
 
         </div>
 
