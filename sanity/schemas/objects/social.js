@@ -11,6 +11,11 @@ export default defineType({
                 type: 'imageType'
             },
             {
+                name: 'iconWhite',
+                title: 'Icon',
+                type: 'imageType'
+            },
+            {
                 name: 'title',
                 title: 'Title',
                 type: 'string',
