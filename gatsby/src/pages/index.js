@@ -10,6 +10,7 @@ import Location from "../components/Location/Location";
 import Lujos from "../components/Lujos/Lujos";
 import Gallery from "../components/Gallery/Gallery";
 import Numbers from "../components/Numbers/Numbers";
+import Blueprint from "../components/Blueprint/Blueprint";
 
 
 export const data = graphql`
@@ -154,6 +155,37 @@ export const data = graphql`
       }
     }
 
+
+
+    ## Blueprint 
+
+    blueprint {
+      _rawBlueprintSectionsTitle
+      blueprints {
+        _key
+        title
+        blueprint {
+          textoAlternativo
+          asset {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              outputPixelDensities: 1.5
+              placeholder: BLURRED
+            )
+          }
+        }
+        _rawInfo1
+        _rawInfo2
+        _rawInfo3
+      }
+    }
+
+
+
+
+
+
+
     }
   }
 `;
@@ -244,6 +276,10 @@ const IndexPage = ({data}) => {
         {/* Numbers */}
 
         <Numbers numbers={data.sanityLandingPage.numbers} />
+
+        {/* Blueprint */}
+
+        <Blueprint blueprint={data.sanityLandingPage.blueprint} />
 
         </div>
 

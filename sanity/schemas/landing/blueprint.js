@@ -21,7 +21,7 @@ export default defineType({
                 type: 'array',
                 of: [
                     {
-                        name: 'numbersItem',
+                        name: 'blueprintItem',
                         title: 'Blueprint Item',
                         type: 'blueprintItem'
                     }
