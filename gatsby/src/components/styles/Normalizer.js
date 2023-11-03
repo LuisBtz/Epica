@@ -276,6 +276,7 @@ ul {
 }
 a {
     text-decoration: none;
+    color: inherit;
 }
 * {
   margin: 0;
