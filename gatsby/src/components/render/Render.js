@@ -38,6 +38,7 @@ z-index: 1;
 }
     .image {
         width: 100%;
+        
     }
     .texto {
         position: absolute;
@@ -50,7 +51,7 @@ z-index: 1;
         text-align: center;
          margin: 0 auto;
          @media (max-width: 950px) {
-            width: 350px;
+            max-width: 350px;
             top: 30px;
             p {
                 width: 100% !important;

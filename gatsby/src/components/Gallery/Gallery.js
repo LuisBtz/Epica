@@ -81,7 +81,7 @@ const Gallery = ({gallery}) => {
     return(
         <GalleryContainer>
 
-            <div className="image">
+            <div className="image general">
                 <GatsbyImage
                     style={{ height: "100%", width: "100%" }}
                     image={imageGetDataImage}
@@ -139,6 +139,11 @@ const Gallery = ({gallery}) => {
 const GalleryContainer = styled.section`
     position: relative;
     margin-top: 100px;
+    .image.general {
+        @media (max-width: 700px) {
+            height: 500px;
+        }
+    }
     .texto {
         position: absolute;
         padding: 0 50px;
