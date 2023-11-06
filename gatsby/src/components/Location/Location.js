@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlockContent from '@sanity/block-content-to-react';
+import Item from "./Item";
 
 const Location = ({location}) => {
 
@@ -9,7 +10,6 @@ const Location = ({location}) => {
     const locationGetDataImageAlt = location.map && location.map.textoAlternativo
   
 
-    const [li, showLi] = useState(true);
 
 
     return(
@@ -32,24 +32,7 @@ const Location = ({location}) => {
                 <ul className='plazas'>
                     {location.sections.map((section) => {
                     return (
-                        <li 
-                            kay={section._kay} 
-                            className={`item ${li === section && 'open'}`}
-                        >
-                            <span className='color' style={{backgroundColor: `${section.color}`}} ></span> 
-                            <h4>{section.titleBigSection}</h4> 
-                        <button onClick={() => showLi(section)}>
-                            <div></div>
-                            <div></div>
-                        </button>
-                            <ul>
-                            {section.list.map((item) => {
-                                return(
-                                    <li>{item}</li>
-                                )
-                            })}
-                            </ul>
-                        </li>
+                        <Item section={section} />
                     )
                     })}
                 </ul>
@@ -91,30 +74,6 @@ margin-top: 50px;
     .plazas {
         margin-top: 50px;
         position: relative;
-        button {
-            position: absolute;
-            top: 10px;
-            right: 0px;
-            width: 15px;
-            height: 15px;
-            div {
-                position: absolute;
-                background-color: var(--black);
-                &:first-child {
-                    width: 15px;
-                    height: 1px;
-                    transform: translateY(-100%);
-                    top: 50%;
-                }
-                &:nth-child(2) {
-                    width: 1px;
-                    height: 100%;
-                    transform: translateX(-50%);
-                    left: 50%;
-                    top: 0;
-                }
-            }
-        }
         li.item.open {
             max-height: 500px;
         }
