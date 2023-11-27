@@ -98,6 +98,7 @@ margin-top: 50px;
             h4 {
                 text-transform: uppercase;
                 margin-left: 20px;
+                padding-right: 20px;
             }
             ul {
                 margin-top: 20px;
