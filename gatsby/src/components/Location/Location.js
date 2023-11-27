@@ -86,7 +86,7 @@ margin-top: 50px;
             overflow: hidden;
             transition: all 350ms ease-in-out;
             @media (max-width: 950px) {
-                max-height: 60px !important;
+                max-height: 55px;
             }
             span.color {
                 display: block;
@@ -102,7 +102,7 @@ margin-top: 50px;
             ul {
                 margin-top: 20px;
                 @media (max-width: 950px) {
-                    margin-top: 50px;
+                    margin-top: 30px;
                 }
                 li {
                     margin-bottom: 10px;
