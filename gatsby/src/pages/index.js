@@ -17,6 +17,11 @@ import Contacto from "../components/Contact/Contact";
 export const data = graphql`
   query {
     sanityLandingPage {
+      brochure {
+        asset {
+          url
+        }
+      }
       _rawAddress
         socialMedia {
         title
@@ -220,7 +225,7 @@ const IndexPage = ({data}) => {
         <button className={nav ? 'menu active' : 'menu'} onClick={() => showNav(!nav)}>
           <img src="/logo.svg" alt='Logo Epica'  className="logo" />
           <div className="mid">
-            <a className="brochure" href='/brochure.pdf' download>descargar brochure</a>
+            <a className="brochure" target='_blank' href={data.sanityLandingPage.brochure.asset.url} download>descargar brochure</a>
             <ul className="menu">
               <li><a href='#concepto'>Concepto</a></li>
               <li><a href='#ubicacion'>Ubicación</a></li>

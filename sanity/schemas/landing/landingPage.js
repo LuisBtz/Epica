@@ -10,6 +10,11 @@ export default {
             type: 'string'
         },
         {
+            title: 'Brochure',
+            name: 'brochure',
+            type: 'file',
+        },
+        {
             name: 'logo',
             title: 'Logo',
             type: 'imageType'
